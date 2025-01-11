@@ -65,6 +65,7 @@ class TicketController extends Controller
         ]);
 
         $ticket->update($validatedData);
+        $ticket->load(['solicitud', 'agente']);
 
         return response()->json($ticket, 200);
     }
