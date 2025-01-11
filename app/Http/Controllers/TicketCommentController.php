@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\TicketComment;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Agente;
 
 class TicketCommentController extends Controller
 {
@@ -35,6 +36,7 @@ class TicketCommentController extends Controller
         $validatedData['ticket_id'] = $ticket->id;
 
         $comment = TicketComment::create($validatedData);
+        $comment -> load('agente');
 
         return response()->json($comment, 201);
     }
