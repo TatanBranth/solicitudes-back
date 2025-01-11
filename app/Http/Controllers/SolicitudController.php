@@ -32,7 +32,7 @@ class SolicitudController extends Controller
 
         // Crear la solicitud
         $solicitud = Solicitud::create($validated);
-
+        $solicitud = Solicitud::all();
         // Retornar la respuesta
         return response()->json($solicitud, 201);
     }
