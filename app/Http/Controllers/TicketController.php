@@ -35,6 +35,9 @@ class TicketController extends Controller
         }
 
         $ticket = Ticket::create($validatedData);
+        $ticket = Ticket::all();
+
+        $ticket->load(['agente']);
 
         return response()->json($ticket, 201);
     }
