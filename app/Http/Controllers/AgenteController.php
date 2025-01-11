@@ -30,6 +30,7 @@ class AgenteController extends Controller
         ]);
 
         $agente = Agente::create($validatedData);
+        $agente = Agente::all();
 
         return response()->json($agente, 201);
     }
